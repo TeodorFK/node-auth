@@ -4,7 +4,7 @@ const { authenticate } = require('../middleware/authenticate');
 
 const router = express.Router();
 
-router.get('/', authenticate, controller.index);
+router.get('/', controller.index);
 
 router.get('/signup', controller.signup_get);
 
@@ -15,5 +15,7 @@ router.get('/login', controller.login_get);
 router.post('/login', controller.login_post);
 
 router.get('/logout', controller.logout);
+
+router.get('/profile', authenticate, controller.profile);
 
 module.exports = router;
